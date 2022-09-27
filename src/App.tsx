@@ -26,7 +26,7 @@ function App() {
     year: 'numeric'
   })
 
-  let int: any = {
+  let variables: any = {
     archive: {}, 
     active: {
       "Task": 0,
@@ -35,10 +35,10 @@ function App() {
     }
   }
   archive.forEach(item => {
-    int.archive[item.category] = int.archive[item.category] + 1 || 1
+    variables.archive[item.category] = variables.archive[item.category] + 1 || 1
   })
   allPosts.forEach(item => {
-    int.active[item.category] += 1 
+    variables.active[item.category] += 1 
   })
 
   const [postInModal, setPostInModal] = useState<IPost[]>([])
@@ -49,13 +49,13 @@ function App() {
   const [post, setPost] = useState<IPost>({
     id:Math.random(), name:'', category:'Task', content:'', date:'', updatedDate:'', dateAt
   })
-
+  
   const onModal = (id?:number | string, booleanValue?: boolean) => {
     setPostInModal([])
     if(booleanValue) {
       setIsArchive(true)
       archive.map(item => {
-        if(item.category == id) {
+        if(item.category === id) {
           setPostInModal(prev => [...prev, item])
         }
       })
@@ -112,6 +112,10 @@ function App() {
         idx = i
       }
     })
+    if(post.date === '') {
+      post.date = post.updatedDate
+      post.updatedDate = ''
+    }
     newArray[idx] = post
     dispatch(taskEdit(newArray))
     toggleForm(false)
@@ -160,7 +164,7 @@ function App() {
 
       {form && <Form post={post} handleChange={handleChange} handleChangeSelect={handleChangeSelect} onAdd={onAdd} onEdit={onEdit} toggleForm={toggleForm} edit={edit}/>}
       
-      <Archive onModal={onModal} activeCount={int.active} archiveCount={int.archive}/>
+      <Archive onModal={onModal} activeCount={variables.active} archiveCount={variables.archive}/>
     </div>
     </>
   
