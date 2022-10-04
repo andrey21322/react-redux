@@ -12,13 +12,13 @@ interface PostsProps {
 export function AllPosts({ onDelete, allPosts, onModal, onOpenEdit, onAddToArchive }:PostsProps) {
   return (
     <>
-      <div className="tags">
-          <div>Name</div>
-          <div>Created</div>
-          <div>Category</div>
-          <div>Content</div>
-          <div>Dates</div>
-          <div className="btns-div">
+      <div className="flex mt-12 mb-10 items-center text-white rounded-xl bg-gray-400 p-2.5 text-left text-lg">
+          <div className='w-56'>Name</div> 
+          <div className='w-56'>Created</div>
+          <div className='w-56'>Category</div>
+          <div className='w-56'>Content</div>
+          <div className='w-56'>Dates</div>
+          <div className="w-96 text-right cursor-pointer">
               <i className="fa fa-archive"></i>
               <i className="fa fa-pencil"></i>
               <i className="fa fa-trash-o"></i>

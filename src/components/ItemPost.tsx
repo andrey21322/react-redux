@@ -7,10 +7,10 @@ interface ItemPostProps {
 
 export function ItemPost({ category, active, archive, onModal }: ItemPostProps) {
   return (
-    <div onClick={() => onModal(category, true)} className="archive-wrapper">
-        <div>{category}</div>
-        <div>{active === undefined ? 0 : active}</div>
-        <div>{archive}</div>
+    <div onClick={() => onModal(category, true)} className="flex mt-12 mb-2 items-center text-white rounded-xl bg-orange-500 p-2.5 text-left text-lg">
+        <div className="w-96">{category}</div>
+        <div className="w-96">{active === undefined ? 0 : active}</div>
+        <div className="w-96">{archive}</div>
     </div>
   )
 }

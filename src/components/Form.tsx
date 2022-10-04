@@ -13,8 +13,8 @@ interface PostProps {
 export function Form({ post, handleChange, handleChangeSelect, onAdd, onEdit, toggleForm, edit }: PostProps) {
     
   return (
-    <div className="add-form">
-      <div className="name-div">
+    <div className="w-1/3 h-2/5 bg-[#6D67BE] absolute top-32 left-1/3 rounded-xl text-center pt-5">
+      <div>
           <input value={post.name} onChange={handleChange} name="name" type="name" placeholder="Name"/>
       </div>
       <div>
@@ -34,10 +34,10 @@ export function Form({ post, handleChange, handleChangeSelect, onAdd, onEdit, to
     :   <div>
             <input value={post.date} onChange={handleChange} name="date" type="date"/>
         </div>}
-      <div className="add-form_btn">
-          {edit === false ? <button onClick={() => onAdd()} className="add-form-btn">ADD</button>
-          : <button onClick={() => onEdit()} className="add-form-btn">EDIT</button>}
-          <button onClick={() => toggleForm(false)} className="cancel-form-btn">CANCEL</button>
+      <div className="w-72 m-auto text-right">
+          {edit === false ? <button onClick={() => onAdd()} className="w-20 h-6 b-none rounded-xl cursos-pointer bg-[#84cc16]">ADD</button>
+          : <button onClick={() => onEdit()} className="w-20 h-6 b-none rounded-xl cursos-pointer bg-[#84cc16]">EDIT</button>}
+          <button onClick={() => toggleForm(false)} className="w-20 h-6 b-none rounded-xl cursos-pointer bg-[#f43f5e]">CANCEL</button>
       </div>
       </div>
   )

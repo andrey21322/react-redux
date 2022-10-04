@@ -10,6 +10,8 @@ import { useTypedSelector } from './hooks/useTypedSelector'
 import { taskDeleted, taskCreated, taskEdit } from './store/action-creators/posts'
 import { Archive } from './components/Archive'
 import { addToArchive, removeFromArchive } from './store/action-creators/archive'
+// import './style.css'
+
 function App() {
 
   const {modal, open, close} = useContext(ModalContext)
@@ -153,9 +155,9 @@ function App() {
   }
 
   return (
-    <>
-    <div className="container">
-      {error !== '' ? <div className='error-div'>{error}</div> : <></>}
+    <div className='font-sans'>
+    <div className="container mx-auto">
+      {error !== '' ? <div className='absolute right-56 top-1/5 w-72 h-20 rounded-xl text-rose-800 bg-[#4Ca9DF] flex text-center items-center justify-center font-semibold text-lg'>{error}</div> : <></>}
       <AllPosts onDelete={onDelete} onModal={onModal} onAddToArchive={onAddToArchive} allPosts={allPosts} onOpenEdit={onOpenEdit}/>
       
       <CreateBtn toggleForm={toggleForm}/>
@@ -166,7 +168,7 @@ function App() {
       
       <Archive onModal={onModal} activeCount={variables.active} archiveCount={variables.archive}/>
     </div>
-    </>
+    </div>
   
   )
 }

@@ -15,12 +15,12 @@ export function Archive({ activeCount, archiveCount, onModal }: PostsProps) {
 
   return (
     <div>
-      <div className="archive-tags">
-        <div>Note Category</div>
-        <div>active</div>
-        <div>archive</div>
+      <div className="flex mt-12 mb-10 items-center text-white rounded-xl bg-gray-400 p-2.5 text-left text-lg">
+        <div className="w-96">Note Category</div>
+        <div className="w-96">active</div>
+        <div className="w-96">archive</div>
       </div>
-      <div className="archive-content">
+      <div className="w-full cursor-pointer">
         {archive.length === 0 ? "Archive is empty" 
         : archive.map((item, i) => <ItemPost onModal={onModal} key={i} category={archiveKeys[i]} active={active[i]} archive={item}/>)
         }

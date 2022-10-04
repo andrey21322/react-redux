@@ -14,11 +14,11 @@ export function Modal({ item, onClose, isArchive, onRemoveFromArchive }: ModalPr
   }
 
   return (
-    <div className="item-wrapper">
-        <div onClick={onClose} className="close-item-btn"><i className="fa fa-times" ></i></div>
+    <div className="absolute top-1/4 left-1/4 w-7/12 min-h-500 bg-[#6D678E] rounded-xl p-7 mr-3">
+        <div onClick={onClose} className="absolute right-1 top-1"><i className="fa fa-times" ></i></div>
         {isArchive
         ? item.map(post =>
-            <div key={post.id} className="item archive-item">
+            <div key={post.id} className="flex mb-2.5 text-black justify-between rounded-xl border p-2.5 pointer hover:text-[#CAB9F1]">
             <div>
                 Created: <span>{post.dateAt}</span>
             </div>
@@ -33,13 +33,13 @@ export function Modal({ item, onClose, isArchive, onRemoveFromArchive }: ModalPr
           )
         : item.map(post => 
           <div key={post.id}>
-          <div className="item">
+          <div className="flex mb-3 pointer">
             Name: <span>{post.name}</span>
           </div>
-          <div className="item">
+          <div className="flex mb-3 pointer">
             Content: <span>{post.content}</span>
           </div>
-          <div className="item">
+          <div className="flex mb-3 pointer">
             Category: <span>{post.category}</span>
           </div>
           </div>
